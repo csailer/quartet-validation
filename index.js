@@ -4,7 +4,7 @@ const figlet = require('figlet');
 const files = require('./lib/files');
 const ssm = require('./lib/ssm');
 const inquirer = require('./lib/inquirer');
-
+const colors = require('colors');
 
 clear();
 
@@ -15,12 +15,8 @@ console.log(
 );
 
 const run = async () => {
-
     const paramGroup = await inquirer.askForParamaterGroup();
-    console.log(paramGroup);
-    ssm(
-        paramGroup.paramGroup
-    );
+    ssm(paramGroup.paramGroup);
 };
   
 run();

@@ -8,6 +8,7 @@
     "chalk": "^4.0.0",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
+    "colors": "^1.4.0",
     "configstore": "^5.0.1",
     "figlet": "^1.4.0",
     "inquirer": "^7.1.0",
