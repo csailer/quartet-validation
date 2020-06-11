@@ -4,6 +4,7 @@ const clear = require('clear');
 const figlet = require('figlet');
 const files = require('./lib/files');
 const ssm = require('./lib/ssm');
+const ec2 = require('./lib/ec2');
 const inquirer = require('./lib/inquirer');
 const colors = require('colors');
 
@@ -16,8 +17,21 @@ console.log(
 );
 
 const run = async () => {
-    const paramGroup = await inquirer.askForParamaterGroup();
-    ssm(paramGroup.paramGroup);
+    const arg = await inquirer.selectAWSService();
+    
+    switch(arg.awsService){
+      case 'ssm':{
+          const paramGroup = await inquirer.askForParamaterGroup();
+          ssm(paramGroup.paramGroup.toUpperCase());
+          break;
+      }
+      case 'ec2':{
+        const amis = ec2();
+        console.log(amis);
+        break;
+      }
+    }
+   
 };
   
 run();
